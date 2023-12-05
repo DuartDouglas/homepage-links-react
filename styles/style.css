@@ -1,0 +1,12 @@
+
+* {
+   box-sizing: border-box;
+   font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+   --color-green-primary: #8DB258; 
+   --color-green-secodary: #37AB00; 
+   --color-gray-medium: #4D4D4D;
+   --color-gray-dark: #252525;
+}
