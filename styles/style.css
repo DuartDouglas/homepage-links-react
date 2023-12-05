@@ -1,12 +1,132 @@
-
 * {
    box-sizing: border-box;
    font-family: 'Open Sans', sans-serif;
+   padding: 0;
+   margin: 0;
 }
 
 :root {
-   --color-green-primary: #8DB258; 
-   --color-green-secodary: #37AB00; 
+   --color-green-primary: #8DB258;
+   --color-green-secodary: #37AB00;
    --color-gray-medium: #4D4D4D;
    --color-gray-dark: #252525;
+   --color-white: #e7e7e7;
+}
+
+#app {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: white;
+}
+
+#app>.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #e7e7e7;
+   width: 100%;
+   padding: 3rem 1.25rem;
+}
+
+.perfil {
+   max-width: 7rem;
+   margin-bottom: 1rem;
+}
+.perfil img {
+   width: 100%;
+}
+
+h1 {
+   color: var(--color-gray-dark);
+   font-size: 1.5rem;
+   line-height: 1.2rem;
+   font-weight: bold;
+}
+
+p {
+   color: var(--color-gray-medium);
+   font-size: 1rem;
+   line-height: 1.2rem;
+   font-weight: 400;
+   margin-top: 1rem;
+}
+
+.buttonsProducts {
+   margin-top: 2rem;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.buttonsProducts button {
+   margin-block: 0.5rem;
+   padding: 1rem;
+   background-color: transparent;
+   border: 1px solid var(--color-green-primary);
+   border-radius: 5rem;
+   color: var(--color-green-primary);
+   font-size: 1rem;
+   line-height: 1.2rem;
+   font-weight: bold;
+}
+
+.buttonsProducts button:hover,
+.buttonsProducts button:active,
+.buttonsProducts button:focus {
+   background-color: var(--color-green-primary);
+   color: var(--color-white);
+   cursor: pointer;
+}
+
+.products .item {
+   background-color: white;
+   padding: 1.25rem 1rem 2rem;
+   border-radius: 1rem;
+   margin-top: 1.5rem;
+}
+
+.products .item img {
+   width: 100%;
+}
+
+.products .item .price {
+   color: var(--color-green-secodary);
+   font-size: 1.25rem;
+   font-weight: bold;
+   text-align: center;
+}
+
+.products .item .containerButton {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-top: 1rem;
+}
+
+.products .item button {
+   padding: 0.8rem 2.25rem;
+   background-color: var(--color-green-primary);
+   border: none;
+   border-radius: 5rem;
+   color: var(--color-white);
+   font-size: 1rem;
+   line-height: 1.2rem;
+   font-weight: bold;
+   text-align: center;
+}
+
+.products .item button:hover,
+.products .item button:active,
+.products .item button:focus {
+   background-color: #7fa14e;
+   color: var(--color-white);
+   cursor: pointer;
+}
+
+
+@media screen and (min-width: 750px) {
+   #app>.container {
+      width: 750px;
+   }
 }
