@@ -1,35 +1,69 @@
 const app = document.getElementById('app');
 
-// fazer um array ou objeto para os itens 
-// pegar os itens e renderizar conforme o botão 
-// cria um componente botão 
-// cirar uma função que irá gerar quantos botões existires para a quantidade de produtos 
-// criar um componente produto/item
+function Button({ onClick, label }) {
+   return (
+      <button onClick={onClick}>{label}</button>
+   );
+}
+
+function ProductComponent({ imageSrc, name, value, description }) {
+   return (
+      <div className="item">
+         <img src={imageSrc} alt={name} />
+         <h4>{name}</h4>
+         <p>{description}</p>
+         <p className="price">{value}</p>
+         <div className="containerButton">
+            <button>Comprar</button>
+         </div>
+      </div>
+   );
+}
 
 function HomePage() {
+   const [selectProduct, setSelectproduct] = React.useState(null);
+
+   const products = [
+      { name: "Produto1", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quo!", value: 50.00, imageSrc: "images/produto1.png" },
+      { name: "Produto2", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quo!", value: 52.00, imageSrc: "images/produto2.png" },
+      { name: "Produto3", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quo!", value: 62.00, imageSrc: "images/produto3.png" }
+   ]
+
+   // const handleButtonClick = (index) => {
+   //   setSelectproduct(products[index]);
+   //}
+
+   function handleButtonClick(index) {
+      setSelectproduct(products[index]);
+   }
+
    return (
       //<H1 />
       <div className="container">
          <div className="perfil">
-            <img src="images/perfil.png" alt="" />
+            <img src="images/perfil.png" alt="perfil" />
          </div>
          <h1>Suculentas</h1>
          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis possimus consequuntur veritatis qui iure ab.</p>
          <div className="buttonsProducts">
-            <button>Produto 1</button>
-            <button>Produto 2</button>
-            <button>Produto 3</button>
+            {products.map((product, index) => (
+               <Button
+                  key={index}
+                  onClick={() => handleButtonClick(index)}
+                  label={product.name}
+               />
+            ))}
          </div>
 
          <div className="products">
-            <div className="item">
-               <img src="images/produto-3.png" alt="produto-1" />
-               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore laboriosam voluptatem voluptate ea accusantium esse. Ab, delectus. Provident perspiciatis nesciunt id ab possimus fuga quod, hic earum mollitia placeat nemo.</p>
-               <p className="price">R$ 55,00</p>
-               <div className="containerButton">
-                  <button>Comprar</button>
-               </div>
-            </div>
+            {selectProduct && (
+               <ProductComponent
+                  imageSrc={selectProduct.imageSrc}
+                  name={selectProduct.name}
+                  description={selectProduct.description}
+                  value={selectProduct.value}
+               />
+            )}
          </div>
       </div>
    );
