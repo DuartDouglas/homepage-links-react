@@ -21,13 +21,13 @@ function ProductComponent({ imageSrc, name, value, description }) {
 }
 
 function HomePage() {
-   const [selectProduct, setSelectproduct] = React.useState(null);
-
    const products = [
       { name: "Produto1", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quo!", value: 50.00, imageSrc: "images/produto1.png" },
       { name: "Produto2", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quo!", value: 52.00, imageSrc: "images/produto2.png" },
       { name: "Produto3", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quo!", value: 62.00, imageSrc: "images/produto3.png" }
    ]
+   
+   const [selectProduct, setSelectproduct] = React.useState(products[0]);
 
    // const handleButtonClick = (index) => {
    //   setSelectproduct(products[index]);
